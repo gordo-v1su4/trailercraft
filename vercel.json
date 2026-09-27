@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/image.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "api/qc.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "api/llm.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "api/character-sheet.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    }
+  }
+}

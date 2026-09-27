@@ -1,0 +1,32 @@
+.env
+.env.*
+!.env.example
+node_modules
+dist
+.omo
+.codegraph
+.playwright-mcp
+package-lock.json
+.vercel
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
+
+# scratch — one-off scripts with inlined base64 image payloads, local logs, backups
+attach*.js
+setp.js
+ids.json
+.ignore
+.tmp/
+
+# images and videos are never committed. Reference plates, sequence grids and
+# shots are published to RustFS and referenced by URL in AGENTS.md instead.
+proof/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.mp4
+*.mov
+*.webm
