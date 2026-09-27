@@ -119,6 +119,17 @@ only; it is overdrawn and must not be on a primary button.
 
 ## 3. What this project is
 
+| | |
+|---|---|
+| Repository | `gordo-v1su4/trailercraft` (public) |
+| Package name | `trailercraft` |
+| Local path | `~/Documents/Github/trailercraft` |
+
+This repo was created fresh in September 2026. The predecessor,
+`gordo-v1su4/batmanbuild-styled-pitch-deck-maker`, is a separate public repository
+kept as an archive — it shares no history with this one, and nothing from it should
+be pulled in. Its slug is a leftover from an unrelated product.
+
 TRAILERCRAFT turns story beats into a trailer. The user writes a Save the Cat
 structure, the app derives shot prompts from those beats, the user generates images
 externally, the app organises the results and cuts them to music on a timeline.
@@ -169,6 +180,24 @@ grep -rniE "contact sheet|storyboard|generate assets" src/ api/
 ```
 
 The expected result is zero matches.
+
+Also check hyphenated and joined forms, which the pattern above will not catch:
+
+```bash
+grep -rniE "contact-sheet|contact_sheet|generateassets" src/ api/
+```
+
+That second grep is the one that matters. It previously found `contact-sheet grid`
+**inside the prompt string** in `api/_lib/sheet.ts` — the text actually sent to the
+image model. A stale word in a comment is harmless; a stale word in a prompt steers
+the model toward the wrong artifact, which is the entire reason the rule exists.
+Check prompt strings by hand, not just prose.
+
+Known identifiers that still use `Sheet` naming and are **not** violations, because
+they are not the banned phrases: `generateSheet`, `SheetTile`, `SheetResult`,
+`onGenerateAssets`, `generateStyledAssets`, `character-sheet`. They are prop and
+function names. Renaming them touches the working Timeline path for no model-facing
+benefit. Leave them unless there is a reason to move.
 
 ---
 
@@ -240,7 +269,10 @@ These are published and load-bearing. Do not delete, overwrite, or regenerate th
 **Run manifest**
 `https://s3.v1su4.dev/trailercraft/media-uploads/2026/09_26/2026-09-26T16-55-00Z/1790461902687-run-manifest.json`
 
-Local copies: `proof/refs/01-nico.jpg`, `02-mira.jpg`, `03-motel.jpg` (all 1536x864).
+No images or video are committed to this repository — every extension in that list
+is gitignored. The plates above are the canonical record; fetch them from RustFS if
+you need the pixels. Locally they were at `proof/refs/01-nico.jpg`, `02-mira.jpg`
+and `03-motel.jpg` (all 1536x864) before the ignore rule was added.
 
 The manifest also references 8 earlier grids under `shotSheets`. These were made
 from ad-hoc prompts *before* the story beats existed. They are **not** accepted

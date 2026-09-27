@@ -78,7 +78,7 @@ export function RunLoader({ onLoaded }: RunLoaderProps) {
           {manifest.characters.length > 0 ? (
             <div>
               <h3 className="mb-2 text-xs uppercase tracking-wide text-white/50">
-                Contact sheets — characters
+                Establishing sheets — characters
               </h3>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {manifest.characters.map((c) => (
@@ -107,7 +107,7 @@ export function RunLoader({ onLoaded }: RunLoaderProps) {
           {manifest.locations.length > 0 ? (
             <div>
               <h3 className="mb-2 text-xs uppercase tracking-wide text-white/50">
-                Contact sheets — locations
+                Establishing sheets — locations
               </h3>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {manifest.locations.map((l) => (

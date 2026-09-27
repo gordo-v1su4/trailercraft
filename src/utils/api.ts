@@ -158,7 +158,7 @@ export interface SheetResult {
 export type SheetPreset = "sunburst" | "sunburstFast";
 
 /**
- * One call produces a contact sheet, which the server slices into 16:9 tiles.
+ * One call produces a sequence grid, which the server slices into 16:9 tiles.
  * Four shots cost one call at 2x2, so a delivered shot is far cheaper.
  */
 export async function generateSheet(

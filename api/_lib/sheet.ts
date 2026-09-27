@@ -1,8 +1,8 @@
 /**
- * Contact-sheet image generation.
+ * Sequence-grid image generation.
  *
  * Asking a model for nine separate shots costs nine calls. Asking for one
- * 3x3 contact sheet and slicing it costs one, and measured on this stack the
+ * 3x3 sequence grid and slicing it costs one, and measured on this stack the
  * grid is ~9x cheaper per delivered shot. A 16:9 sheet divided 3x3 also yields
  * 16:9 tiles for free, which is why the grid is generated at 16:9.
  *
@@ -175,7 +175,7 @@ export function buildSheetPrompt(
     .join("\n");
 
   return [
-    `Generate ONE image that is a seamless ${rows}x${columns} contact-sheet grid of ${total} different photorealistic film stills.`,
+    `Generate ONE image that is a seamless ${rows}x${columns} cinematic sequence shot grid of ${total} different photorealistic film stills.`,
     "",
     "LAYOUT RULES — follow exactly:",
     `- The ${total} cells must tile the entire canvas edge to edge in a ${rows} row by ${columns} column grid.`,

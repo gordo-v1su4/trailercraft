@@ -416,7 +416,7 @@ export function TimelineStep(props: TimelineStepProps) {
               <button
                 onClick={onGenerateAssets}
                 disabled={isAIProcessing}
-                title="Regenerate every beat's contact sheet"
+                title="Regenerate every beat's sequence grid"
                 className="text-[9px] font-medium flex items-center gap-1 transition-colors px-2 py-1 rounded border disabled:opacity-40"
                 style={{ color: accentHex, borderColor: `${accentHex}30`, backgroundColor: `${accentHex}10` }}
               >

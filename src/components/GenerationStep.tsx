@@ -54,12 +54,12 @@ export function GenerationStep(props: GenerationStepProps) {
         <div>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border mb-3" style={{ backgroundColor: `${accentHex}12`, borderColor: `${accentHex}30` }}>
             <span className="w-1 h-1 rounded-full" style={{ backgroundColor: accentHex }} />
-            <span className="text-[10px] font-mono text-white/90 tracking-wide">STEP 03 • GENERATION • ASSET CREATION</span>
+            <span className="text-[10px] font-mono text-white/90 tracking-wide">STEP 02 • GENERATION • SEQUENCE GRIDS</span>
           </div>
           <h1 className="text-[40px] sm:text-[56px] lg:text-[64px] font-[800] tracking-[-0.04em] leading-[0.85] text-white" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-            GENERATE ASSETS
+            SEQUENCE GRIDS
           </h1>
-          <p className="text-[13px] text-[#7a8089] mt-3 max-w-md">AI generates scene variants for each story beat. Render images individually or in batch.</p>
+          <p className="text-[13px] text-[#7a8089] mt-3 max-w-md">One sequence grid per story beat, sliced into four 16:9 shots. Generate the grid outside the app, then drop it back on the row.</p>
         </div>
         <div className="hidden sm:block text-right text-[10px] font-mono text-[#5a616c] leading-relaxed pt-2">
           {totalCount} scenes<br />
@@ -99,7 +99,7 @@ export function GenerationStep(props: GenerationStepProps) {
           {isAIProcessing && (generationStatus.includes("Creating") || generationStatus.includes("Rendering")) ? (
             <><Loader2 size={14} className="animate-spin" /> {generationStatus}</>
           ) : (
-            <><Layers size={14} /> Generate Contact Sheets</>
+            <><Layers size={14} /> Build Sequence Grids</>
           )}
         </button>
         {generatedScenes.length > 0 && (
@@ -139,7 +139,7 @@ export function GenerationStep(props: GenerationStepProps) {
                 <Film size={28} className="text-[#5a616c]" />
               </div>
               <p className="text-[13px] text-[#9aa0a8] font-medium">No assets generated yet</p>
-              <p className="text-[11px] text-[#5a616c] max-w-sm">Generates one 2x2 contact sheet per story beat and slices it into four 1280x720 shots</p>
+              <p className="text-[11px] text-[#5a616c] max-w-sm">One 2x2 sequence grid per story beat, sliced into four 1280x720 shots</p>
             </div>
           )}
         </div>
@@ -159,7 +159,7 @@ export function GenerationStep(props: GenerationStepProps) {
                 <button
                   onClick={() => onRegenerateBeat(groupedScenes[beatTitle][0].beatId)}
                   disabled={isAIProcessing}
-                  title="Regenerate this beat's contact sheet"
+                  title="Regenerate this beat's sequence grid"
                   className="text-[9px] font-mono px-1.5 py-0.5 rounded border border-white/10 text-[#5a616c] hover:text-white hover:border-white/25 transition-all disabled:opacity-40 flex items-center gap-1"
                 >
                   <RotateCcw size={8} /> SHEET
